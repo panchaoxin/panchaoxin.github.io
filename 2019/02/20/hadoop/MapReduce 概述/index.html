@@ -96,20 +96,27 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="pancx&#39;s blog">
-<meta property="og:url" content="https://panchaoxin.github.io/tags/java/index.html">
+  <meta name="description" content="YARN架构 ResourceManager  处理客户端请求 启动/监控ApplicationMaster 监控NodeManager 资源分配与调度  NodeManager  单个节点上的资源管理 处理来自ResourceManager的命令 处理来自ApplicationMaster的命令  ApplicationMaster  数据切分 为应用程序申请资源，并分配给内部任务 任务监控与容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MapReduce 概述">
+<meta property="og:url" content="https://panchaoxin.github.io/2019/02/20/hadoop/MapReduce 概述/index.html">
 <meta property="og:site_name" content="pancx&#39;s blog">
+<meta property="og:description" content="YARN架构 ResourceManager  处理客户端请求 启动/监控ApplicationMaster 监控NodeManager 资源分配与调度  NodeManager  单个节点上的资源管理 处理来自ResourceManager的命令 处理来自ApplicationMaster的命令  ApplicationMaster  数据切分 为应用程序申请资源，并分配给内部任务 任务监控与容">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/zhangyy/guh3ya1ei4mfdbg6h07sgokp/image_1b2tjc5511tr410v10r1g9u869m.png">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550676718597&di=725928c0922f203e376f78e7ba834d2e&imgtype=0&src=http%3A%2F%2Fstatic.zybuluo.com%2Fzhangyy%2F6oykq4tguvh2n5ieoid393qy%2Fimage_1b2tjmaq41vni1nk1unr1ghg70q13.png">
+<meta property="og:updated_time" content="2019-02-20T14:36:53.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pancx&#39;s blog">
+<meta name="twitter:title" content="MapReduce 概述">
+<meta name="twitter:description" content="YARN架构 ResourceManager  处理客户端请求 启动/监控ApplicationMaster 监控NodeManager 资源分配与调度  NodeManager  单个节点上的资源管理 处理来自ResourceManager的命令 处理来自ApplicationMaster的命令  ApplicationMaster  数据切分 为应用程序申请资源，并分配给内部任务 任务监控与容">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhangyy/guh3ya1ei4mfdbg6h07sgokp/image_1b2tjc5511tr410v10r1g9u869m.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://panchaoxin.github.io/tags/java/">
+  <link rel="canonical" href="https://panchaoxin.github.io/2019/02/20/hadoop/MapReduce 概述/">
 
 
 
@@ -119,7 +126,7 @@
   };
 </script>
 
-  <title>标签: java | pancx's blog</title>
+  <title>MapReduce 概述 | pancx's blog</title>
   
 
 
@@ -167,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <!-- Github Cornors begin -->
     <a href="https://github.com/panchaoxin" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -225,7 +232,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -330,79 +337,380 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>java<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://panchaoxin.github.io/2019/02/20/hadoop/MapReduce 概述/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="panchaoxin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pancx's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/02/19/文章标题/" itemprop="url">
-            
-              <span itemprop="name">文章标题</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">MapReduce 概述
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T18:10:36+08:00" content="2019-02-19">
-          02-19
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-20 19:10:36 / 修改时间：22:36:53" itemprop="dateCreated datePublished" datetime="2019-02-20T19:10:36+08:00">2019-02-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/MapReduce/" itemprop="url" rel="index"><span itemprop="name">MapReduce</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/20/hadoop/MapReduce 概述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/20/hadoop/MapReduce 概述/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="YARN架构"><a href="#YARN架构" class="headerlink" title="YARN架构"></a>YARN架构</h1><p><img src="http://static.zybuluo.com/zhangyy/guh3ya1ei4mfdbg6h07sgokp/image_1b2tjc5511tr410v10r1g9u869m.png" alt></p>
+<p>ResourceManager</p>
+<ul>
+<li>处理客户端请求</li>
+<li>启动/监控ApplicationMaster</li>
+<li>监控NodeManager</li>
+<li>资源分配与调度</li>
+</ul>
+<p>NodeManager</p>
+<ul>
+<li>单个节点上的资源管理</li>
+<li>处理来自ResourceManager的命令</li>
+<li>处理来自ApplicationMaster的命令</li>
+</ul>
+<p>ApplicationMaster</p>
+<ul>
+<li>数据切分</li>
+<li>为应用程序申请资源，并分配给内部任务</li>
+<li>任务监控与容错</li>
+</ul>
+<p>Container</p>
+<ul>
+<li>对任务运行环境的抽象，封装了CPU内存等多维资源以及环境变量、启动命令等任务运  行相关的信息.</li>
+</ul>
+<h1 id="MapReduce架构"><a href="#MapReduce架构" class="headerlink" title="MapReduce架构"></a>MapReduce架构</h1><p>离线计算框架 MapReduce</p>
+<ol>
+<li>将计算过程分为两个阶段，map和reduce<ul>
+<li>map 阶段并行处理输入数据</li>
+<li>reduce 阶段对map 结果进行汇总。</li>
+</ul>
+</li>
+<li>shuffle 连接map 和Reduce 两个阶段<ul>
+<li>map task 将数据写到本地磁盘</li>
+<li>reduce task 从每个map TASK 上读取一份数据</li>
+</ul>
+</li>
+<li>仅适合 离线批处理<ul>
+<li>具有很好的容错性和扩展性</li>
+<li>适合简单的批处理任务</li>
+</ul>
+</li>
+<li>缺点明显<ul>
+<li>启动开销大，过多使用磁盘导致效率底下等。</li>
+</ul>
+</li>
+</ol>
+<h1 id="MapReduce-On-YARN"><a href="#MapReduce-On-YARN" class="headerlink" title="MapReduce On YARN"></a>MapReduce On YARN</h1><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1550676718597&amp;di=725928c0922f203e376f78e7ba834d2e&amp;imgtype=0&amp;src=http%3A%2F%2Fstatic.zybuluo.com%2Fzhangyy%2F6oykq4tguvh2n5ieoid393qy%2Fimage_1b2tjmaq41vni1nk1unr1ghg70q13.png" alt></p>
+<ol>
+<li><p>客户端向YARN中提交应用程序/作业给ResourceManager，其中包括ApplicaitonMaster程序、启动ApplicationMaster的命令、用户程序等；</p>
+</li>
+<li><p>ResourceManager为作业分配第一个Container，并与对应的NodeManager通信，要求它在这个Containter中启动该作业的ApplicationMaster（App Mstr）；</p>
+</li>
+<li><p>ApplicationMaster首先向ResourceManager注册，这样用户可以直接通过ResourceManager查询作业的运行状态；然后它将为各个任务申请资源并监控任务的运行状态，直到运行结束。即重复步骤4-7；</p>
+</li>
+<li><p>ApplicationMaster采用轮询的方式通过RPC请求向ResourceManager申请和领取资源；</p>
+</li>
+<li><p>一旦ApplicationMaster申请到资源后，便与对应的NodeManager通信，要求它启动任务；</p>
+</li>
+<li><p>各个NodeManager分别在Container中启动Map任务（Map Task），或者启动Reduce任务（Reduce Task），或者都启动（如果本机资源足够的话）；</p>
+</li>
+<li><p>各个任务通过RPC协议向ApplicationMaster汇报自己的状态和进度，以让ApplicaitonMaster随时掌握各个任务的运行状态，从而可以在任务失败时重新启动任务；<br>在作业运行过程中，用户可随时通过RPC向ApplicationMaster查询作业当前运行状态；</p>
+</li>
+<li><p>作业完成后，ApplicationMaster向ResourceManager注销并关闭自己；</p>
+</li>
+</ol>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+  <img id="wechat_subscriber_qcode" src="/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
+  <div>关注我的公众号</div>
+</div>
+
+      </div>
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持一下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="panchaoxin 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="panchaoxin 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/hadoop/Hadoop 概述/" rel="next" title="Hadoop 概述">
+                <i class="fa fa-chevron-left"></i> Hadoop 概述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/20/hadoop/HDFS 概述/" rel="prev" title="HDFS 概述">
+                HDFS 概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -423,8 +731,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -532,6 +849,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#YARN架构"><span class="nav-number">1.</span> <span class="nav-text">YARN架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce架构"><span class="nav-number">2.</span> <span class="nav-text">MapReduce架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapReduce-On-YARN"><span class="nav-number">3.</span> <span class="nav-text">MapReduce On YARN</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -691,6 +1025,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -732,6 +1070,8 @@
 
 
 
+
+  
 
 
   
