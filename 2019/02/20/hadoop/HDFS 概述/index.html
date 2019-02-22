@@ -50,19 +50,19 @@
 
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+<link rel="stylesheet" href="/test/css/main.css?v=7.0.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/test/images/apple-touch-icon-next.png?v=7.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/test/images/favicon-32x32-next.png?v=7.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/test/images/favicon-16x16-next.png?v=7.0.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/test/images/logo.svg?v=7.0.0" color="#222">
 
 
 
@@ -73,7 +73,7 @@
 <script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/test/',
     scheme: 'Gemini',
     version: '7.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -101,7 +101,7 @@
   <meta name="description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS 概述">
-<meta property="og:url" content="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/index.html">
+<meta property="og:url" content="https://gitee.com/nahook/test/2019/02/20/hadoop/HDFS 概述/index.html">
 <meta property="og:site_name" content="pancx&#39;s blog">
 <meta property="og:description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
 <meta property="og:locale" content="zh-CN">
@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e37bad63d6.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e38ebbf911.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e2c8bd5253.png">
-<meta property="og:updated_time" content="2019-02-21T16:40:33.501Z">
+<meta property="og:updated_time" content="2019-02-21T17:54:56.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS 概述">
 <meta name="twitter:description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/">
+  <link rel="canonical" href="https://gitee.com/nahook/test/2019/02/20/hadoop/HDFS 概述/">
 
 
 
@@ -195,7 +195,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/test/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">pancx's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -234,7 +234,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/test/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -251,7 +251,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/test/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -268,7 +268,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/test/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -285,7 +285,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/test/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
 
@@ -366,12 +366,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/">
+    <link itemprop="mainEntityOfPage" href="https://gitee.com/nahook/test/test/2019/02/20/hadoop/HDFS 概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="panchaoxin">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/test/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -426,7 +426,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-22 00:40:33" itemprop="dateModified" datetime="2019-02-22T00:40:33+08:00">2019-02-22</time>
+                <time title="修改时间：2019-02-22 01:54:56" itemprop="dateModified" datetime="2019-02-22T01:54:56+08:00">2019-02-22</time>
               
             
           </span>
@@ -443,14 +443,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/test/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/HDFS/" itemprop="url" rel="index"><span itemprop="name">HDFS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/test/categories/Hadoop/HDFS/" itemprop="url" rel="index"><span itemprop="name">HDFS</span></a></span>
 
                 
                 
@@ -469,8 +469,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/20/hadoop/HDFS 概述/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/20/hadoop/HDFS 概述/" itemprop="commentCount"></span>
+                <a href="/test/2019/02/20/hadoop/HDFS 概述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/test/2019/02/20/hadoop/HDFS 概述/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -678,7 +678,7 @@
 <h3 id="2-3-5-为什么达到关闭SafeMode的条件，还要缓冲30秒？"><a href="#2-3-5-为什么达到关闭SafeMode的条件，还要缓冲30秒？" class="headerlink" title="2.3.5. 为什么达到关闭SafeMode的条件，还要缓冲30秒？"></a>2.3.5. 为什么达到关闭SafeMode的条件，还要缓冲30秒？</h3><p>服务器求稳不求快，给30秒让HDFS稳定一下</p>
 <h3 id="2-3-6-手动操作SafeMode"><a href="#2-3-6-手动操作SafeMode" class="headerlink" title="2.3.6. 手动操作SafeMode"></a>2.3.6. 手动操作SafeMode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get   <span class="comment"># 查看是否处于安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode enter   <span class="comment"># 手动进入安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode leave   <span class="comment"># 强制退出安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode <span class="built_in">wait</span>   <span class="comment"># 挂起shell，直到安全模式退出</span></span><br></pre></td></tr></table></figure>
 <h2 id="2-4-DataNode"><a href="#2-4-DataNode" class="headerlink" title="2.4. DataNode"></a>2.4. DataNode</h2><ul>
-<li>负责数据的存储和读写</li>
+<li>负责数据块的存储和读写。存储块数据以及块数据的校验和</li>
 <li>DataNode启动后向NameNode注册，通过后，周期性（1小时）向NameNode上报块列表信息</li>
 <li>每3秒一次向NameNode发送心跳，心跳返回结果带有NameNode给DataNode命令（如复制块数据到另一台机器，或删除某个数据块）。如果NameNode超过10分钟没有收到某个DataNode，则认为该DataNode不可用。</li>
 </ul>
@@ -728,7 +728,7 @@
     
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-  <img id="wechat_subscriber_qcode" src="/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
+  <img id="wechat_subscriber_qcode" src="/test/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
   <div>关注我的公众号</div>
 </div>
 
@@ -749,14 +749,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="panchaoxin 微信支付">
+        <img id="wechat_qr" src="/test/images/wechatpay.jpg" alt="panchaoxin 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="panchaoxin 支付宝">
+        <img id="alipay_qr" src="/test/images/alipay.jpg" alt="panchaoxin 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -836,7 +836,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/20/hadoop/MapReduce 概述/" rel="next" title="MapReduce 概述">
+              <a href="/test/2019/02/20/hadoop/MapReduce 概述/" rel="next" title="MapReduce 概述">
                 <i class="fa fa-chevron-left"></i> MapReduce 概述
               </a>
             
@@ -846,7 +846,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/20/hadoop/Hadoop 组件启动关闭的三种方式/" rel="prev" title="Hadoop 组件启动关闭的三种方式">
+              <a href="/test/2019/02/20/hadoop/Hadoop 组件启动关闭的三种方式/" rel="prev" title="Hadoop 组件启动关闭的三种方式">
                 Hadoop 组件启动关闭的三种方式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -911,7 +911,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="panchaoxin">
+              <img class="site-author-image" itemprop="image" src="/test/images/avatar.png" alt="panchaoxin">
             
               <p class="site-author-name" itemprop="name">panchaoxin</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -922,9 +922,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/test/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -934,7 +934,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  <a href="/test/categories/index.html">
                     
                     
                       
@@ -957,7 +957,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  <a href="/test/tags/index.html">
                     
                     
                       
@@ -1161,45 +1161,45 @@
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/test/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/test/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/affix.js?v=7.0.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
-
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/test/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/test/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/test/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/test/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/test/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/test/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/test/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/test/js/src/bootstrap.js?v=7.0.0"></script>
 
 
 
@@ -1252,7 +1252,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/" + search_path;
+    var path = "/test/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
