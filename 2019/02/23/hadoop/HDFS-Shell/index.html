@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. HDFS Shell1.1. 查看所有命令的用法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152$ hdfs dfsUsage: hadoop fs [generic options]        [-appendToFile &amp;lt;localsr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDFS Shell">
+<meta property="og:url" content="https://panchaoxin.github.io/2019/02/23/hadoop/HDFS-Shell/index.html">
+<meta property="og:site_name" content="pancx&#39;s blog">
+<meta property="og:description" content="1. HDFS Shell1.1. 查看所有命令的用法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152$ hdfs dfsUsage: hadoop fs [generic options]        [-appendToFile &amp;lt;localsr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-25T07:58:04.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDFS Shell">
+<meta name="twitter:description" content="1. HDFS Shell1.1. 查看所有命令的用法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152$ hdfs dfsUsage: hadoop fs [generic options]        [-appendToFile &amp;lt;localsr">
+
+
+
+
+
+
+  <link rel="canonical" href="https://panchaoxin.github.io/2019/02/23/hadoop/HDFS-Shell/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HDFS Shell | pancx's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <!-- Github Cornors begin -->
+    <a href="https://github.com/panchaoxin" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <!-- Github Cornors end -->
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pancx's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://panchaoxin.github.io/2019/02/23/hadoop/HDFS-Shell/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="panchaoxin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pancx's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HDFS Shell
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-23 23:12:16" itemprop="dateCreated datePublished" datetime="2019-02-23T23:12:16+08:00">2019-02-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-25 15:58:04" itemprop="dateModified" datetime="2019-02-25T15:58:04+08:00">2019-02-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/HDFS/" itemprop="url" rel="index"><span itemprop="name">HDFS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/23/hadoop/HDFS-Shell/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/23/hadoop/HDFS-Shell/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-HDFS-Shell"><a href="#1-HDFS-Shell" class="headerlink" title="1. HDFS Shell"></a>1. HDFS Shell</h1><h2 id="1-1-查看所有命令的用法"><a href="#1-1-查看所有命令的用法" class="headerlink" title="1.1. 查看所有命令的用法"></a>1.1. 查看所有命令的用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs</span><br><span class="line">Usage: hadoop fs [generic options]</span><br><span class="line">        [-appendToFile &lt;localsrc&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-cat [-ignoreCrc] &lt;src&gt; ...]</span><br><span class="line">        [-checksum &lt;src&gt; ...]</span><br><span class="line">        [-chgrp [-R] GROUP PATH...]</span><br><span class="line">        [-chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; PATH...]</span><br><span class="line">        [-chown [-R] [OWNER][:[GROUP]] PATH...]</span><br><span class="line">        [-copyFromLocal [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-copyToLocal [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]</span><br><span class="line">        [-count [-q] [-h] &lt;path&gt; ...]</span><br><span class="line">        [-cp [-f] [-p | -p[topax]] &lt;src&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-createSnapshot &lt;snapshotDir&gt; [&lt;snapshotName&gt;]]</span><br><span class="line">        [-deleteSnapshot &lt;snapshotDir&gt; &lt;snapshotName&gt;]</span><br><span class="line">        [-df [-h] [&lt;path&gt; ...]]</span><br><span class="line">        [-du [-s] [-h] &lt;path&gt; ...]</span><br><span class="line">        [-expunge]</span><br><span class="line">        [-get [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]</span><br><span class="line">        [-getfacl [-R] &lt;path&gt;]</span><br><span class="line">        [-getfattr [-R] &#123;-n name | -d&#125; [-e en] &lt;path&gt;]</span><br><span class="line">        [-getmerge [-nl] &lt;src&gt; &lt;localdst&gt;]</span><br><span class="line">        [-<span class="built_in">help</span> [cmd ...]]</span><br><span class="line">        [-ls [-d] [-h] [-R] [&lt;path&gt; ...]]</span><br><span class="line">        [-mkdir [-p] &lt;path&gt; ...]</span><br><span class="line">        [-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-moveToLocal &lt;src&gt; &lt;localdst&gt;]</span><br><span class="line">        [-mv &lt;src&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-put [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;]</span><br><span class="line">        [-renameSnapshot &lt;snapshotDir&gt; &lt;oldName&gt; &lt;newName&gt;]</span><br><span class="line">        [-rm [-f] [-r|-R] [-skipTrash] &lt;src&gt; ...]</span><br><span class="line">        [-rmdir [--ignore-fail-on-non-empty] &lt;dir&gt; ...]</span><br><span class="line">        [-setfacl [-R] [&#123;-b|-k&#125; &#123;-m|-x &lt;acl_spec&gt;&#125; &lt;path&gt;]|[--<span class="built_in">set</span> &lt;acl_spec&gt; &lt;path&gt;]]</span><br><span class="line">        [-setfattr &#123;-n name [-v value] | -x name&#125; &lt;path&gt;]</span><br><span class="line">        [-setrep [-R] [-w] &lt;rep&gt; &lt;path&gt; ...]</span><br><span class="line">        [-<span class="built_in">stat</span> [format] &lt;path&gt; ...]</span><br><span class="line">        [-tail [-f] &lt;file&gt;]</span><br><span class="line">        [-<span class="built_in">test</span> -[defsz] &lt;path&gt;]</span><br><span class="line">        [-text [-ignoreCrc] &lt;src&gt; ...]</span><br><span class="line">        [-touchz &lt;path&gt; ...]</span><br><span class="line">        [-usage [cmd ...]]</span><br><span class="line"></span><br><span class="line">Generic options supported are</span><br><span class="line">-conf &lt;configuration file&gt;     specify an application configuration file</span><br><span class="line">-D &lt;property=value&gt;            use value <span class="keyword">for</span> given property</span><br><span class="line">-fs &lt;<span class="built_in">local</span>|namenode:port&gt;      specify a namenode</span><br><span class="line">-jt &lt;<span class="built_in">local</span>|resourcemanager:port&gt;    specify a ResourceManager</span><br><span class="line">-files &lt;comma separated list of files&gt;    specify comma separated files to be copied to the map reduce cluster</span><br><span class="line">-libjars &lt;comma separated list of jars&gt;    specify comma separated jar files to include <span class="keyword">in</span> the classpath.</span><br><span class="line">-archives &lt;comma separated list of archives&gt;    specify comma separated archives to be unarchived on the compute machines.</span><br><span class="line"></span><br><span class="line">The general <span class="built_in">command</span> line syntax is</span><br><span class="line">bin/hadoop <span class="built_in">command</span> [genericOptions] [commandOptions]</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-help-查看某一命令的具体用法"><a href="#1-2-help-查看某一命令的具体用法" class="headerlink" title="1.2. help 查看某一命令的具体用法"></a>1.2. help 查看某一命令的具体用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">help</span> get   <span class="comment"># 查看get的用法</span></span><br><span class="line">hdfs dfs -<span class="built_in">help</span> put   <span class="comment"># 查看put的用法</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-ls-目录浏览"><a href="#1-3-ls-目录浏览" class="headerlink" title="1.3. ls 目录浏览"></a>1.3. ls 目录浏览</h2><p>用法：<code>-ls [-d] [-h] [-R] [&lt;path&gt; ...]</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>查看目录本身信息</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>显示文件大小单位便于阅读（byte单位省略）</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>递归显示</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs -ls /     <span class="comment"># 列出目录</span></span><br><span class="line">Found 2 items</span><br><span class="line">-rw-r--r--   3 root supergroup  199635269 2019-02-23 13:35 /hadoop-2.6.5.tar.gz</span><br><span class="line">drwxr-xr-x   - root supergroup          0 2019-02-23 13:03 /input</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -ls -d /  <span class="comment"># 列出目录本身</span></span><br><span class="line">drwxr-xr-x   - root supergroup          0 2019-02-23 13:35 /</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -ls -R /  <span class="comment"># 递归查看根目录</span></span><br><span class="line">-rw-r--r--   3 root supergroup  199635269 2019-02-23 13:35 /hadoop-2.6.5.tar.gz</span><br><span class="line">drwxr-xr-x   - root supergroup          0 2019-02-23 13:03 /input</span><br><span class="line">-rw-r--r--   3 root supergroup        280 2019-02-23 13:03 /input/1.txt</span><br><span class="line">-rw-r--r--   3 root supergroup         58 2019-02-23 13:03 /input/2.txt</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-mkdir-创建目录"><a href="#1-4-mkdir-创建目录" class="headerlink" title="1.4. mkdir 创建目录"></a>1.4. mkdir 创建目录</h2><p>用法：<code>-mkdir [-p] &lt;path&gt; ...</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>递归创建</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir /d1</span><br><span class="line">hdfs dfs -mkdir /d1 /d2  <span class="comment"># 创建多个目录</span></span><br><span class="line">hdfs dfs -mkdir -p /d1/d2</span><br></pre></td></tr></table></figure>
+<h2 id="1-5-moveFromLocal-从本地移动到HDFS"><a href="#1-5-moveFromLocal-从本地移动到HDFS" class="headerlink" title="1.5. moveFromLocal 从本地移动到HDFS"></a>1.5. moveFromLocal 从本地移动到HDFS</h2><p>用法：<code>-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;</code></p>
+<p>说明：与put类似，区别在于moveFromLocal会删除本地文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -moveFromLocal 1.txt /d1  <span class="comment"># 移动文件</span></span><br><span class="line">hdfs dfs -moveFromLocal dir1 /d1  <span class="comment"># 移动目录</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-6-cat-查看HDFS的文件"><a href="#1-6-cat-查看HDFS的文件" class="headerlink" title="1.6. cat 查看HDFS的文件"></a>1.6. cat 查看HDFS的文件</h2><p>用法：<code>-cat [-ignoreCrc] &lt;src&gt; ...</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -cat /input/1.txt  <span class="comment"># 查看文件</span></span><br><span class="line">hdfs dfs -cat /input/1.txt /input/2.txt  <span class="comment"># 查看多个文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-7-appendToFile-追加文件到已存在文件末尾"><a href="#1-7-appendToFile-追加文件到已存在文件末尾" class="headerlink" title="1.7. appendToFile 追加文件到已存在文件末尾"></a>1.7. appendToFile 追加文件到已存在文件末尾</h2><p>用法：<code>-appendToFile &lt;localsrc&gt; ... &lt;dst&gt;</code></p>
+<p>说明：<code>&lt;localsrc&gt;</code>的值如果是 <code>-</code>，表示从stdin读取输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs -appendToFile 2.txt /1.txt  <span class="comment"># 2.txt追加到1.txt</span></span><br><span class="line">$ hdfs dfs -appendToFile 2.txt 3.txt /1.txt  <span class="comment"># 2.txt、3.txt追加到1.txt</span></span><br><span class="line">$ hdfs dfs -appendToFile - /1.txt   <span class="comment"># 将控制台的输入追加到1.txt</span></span><br><span class="line">hello world</span><br><span class="line">^D   <span class="comment"># CTRL+D结束输入</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-8-chgrp-修改所有组"><a href="#1-8-chgrp-修改所有组" class="headerlink" title="1.8. chgrp 修改所有组"></a>1.8. chgrp 修改所有组</h2><p>用法：<code>-chgrp [-R] GROUP PATH...</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -chgrp group1 /1.txt</span><br><span class="line">hdfs dfs -chgrp group1 /dir1</span><br><span class="line">hdfs dfs -chgrp -R group1 /dir1  <span class="comment"># 递归修改</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-9-chown-修改所有者和所有组"><a href="#1-9-chown-修改所有者和所有组" class="headerlink" title="1.9. chown 修改所有者和所有组"></a>1.9. chown 修改所有者和所有组</h2><p>用法：<code>-chown [-R] [OWNER][:[GROUP]] PATH...</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -chown user1 /1.txt</span><br><span class="line">hdfs dfs -chown user1:group1 /1.txt</span><br><span class="line">hdfs dfs -chown user1:group1 /dir1</span><br><span class="line">hdfs dfs -chown -R user1:group1 /dir1  <span class="comment"># 递归修改</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-10-chmod-修改权限"><a href="#1-10-chmod-修改权限" class="headerlink" title="1.10. chmod 修改权限"></a>1.10. chmod 修改权限</h2><p>用法：<code>-chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; PATH..</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -chmod a+x /1.txt</span><br><span class="line">hdfs dfs -chmod +x /1.txt   <span class="comment"># 权限+x 即 a+x </span></span><br><span class="line">hdfs dfs -chmod a-x /1.txt</span><br><span class="line">hdfs dfs -chmod -x /1.txt   <span class="comment"># 权限-x 即 a-x</span></span><br><span class="line">hdfs dfs -chmod -R 755 /    <span class="comment"># -R 递归修改</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-11-put-copyFromLocal-上传本地文件到HDFS"><a href="#1-11-put-copyFromLocal-上传本地文件到HDFS" class="headerlink" title="1.11. put / copyFromLocal 上传本地文件到HDFS"></a>1.11. put / copyFromLocal 上传本地文件到HDFS</h2><p>用法：<code>-copyFromLocal [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;</code>、<code>-put [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>保留源文件的access时间戳、modification时间戳、所有者、所有组、和文件权限</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>如果目标文件已存在，则覆盖</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>允许DataNode懒惰持久化到磁盘（lazily persist），强制设置副本因子为1。该选项会导致可用性降低，请谨慎使用</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -put 1.txt /d1   <span class="comment"># 上传1.txt</span></span><br><span class="line">hdfs dfs -put 1.txt 2.txt /d1     <span class="comment"># 上传1.txt和2.txt</span></span><br><span class="line">hdfs dfs -put *.txt /d1   <span class="comment"># 上传所有txt文件</span></span><br><span class="line">hdfs dfs -put d1 /    <span class="comment"># 上传整个d1目录</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-12-get-copyToLocal-下载文件到本地"><a href="#1-12-get-copyToLocal-下载文件到本地" class="headerlink" title="1.12. get / copyToLocal 下载文件到本地"></a>1.12. get / copyToLocal 下载文件到本地</h2><p>用法：<code>-put [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;</code>，<code>-copyToLocal [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>保留源文件的access时间戳、modification时间戳、所有者、所有组、和文件权限</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -get /1.txt ~     <span class="comment"># 下载1.txt</span></span><br><span class="line">hdfs dfs -get /1.txt /2.txt ~ <span class="comment"># 下载1.txt和2.txt</span></span><br><span class="line">hdfs dfs -get /*.txt ~    <span class="comment"># 下载所有的txt文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-13-cp-从HDFS一个路径拷贝到HDFS的另一个路径"><a href="#1-13-cp-从HDFS一个路径拷贝到HDFS的另一个路径" class="headerlink" title="1.13. cp 从HDFS一个路径拷贝到HDFS的另一个路径"></a>1.13. cp 从HDFS一个路径拷贝到HDFS的另一个路径</h2><p>用法：<code>-cp [-f] [-p | -p[topax]] &lt;src&gt; ... &lt;dst&gt;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>all of the source and target pathnames are in the /.reserved/raw hierarchy. raw namespace xattr preservation is determined solely by the presence (or absence) of the /.reserved/raw prefix and not by the -p option</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>如果目标文件已存在，则覆盖</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs -ls -R /</span><br><span class="line">drwxr-xr-x   - root supergroup          0 2018-04-08 23:42 /d1</span><br><span class="line">-rw-r--r--   1 root supergroup          6 2018-04-08 23:16 /d1/1.txt</span><br><span class="line">drwxr-xr-x   - root supergroup          0 2018-04-08 23:42 /d2</span><br><span class="line"></span><br><span class="line">hdfs dfs -cp /d1/1.txt /d2    <span class="comment"># 将1.txt拷贝到/d2目录下</span></span><br><span class="line">hdfs dfs -cp /d1/1.txt /dir100    <span class="comment"># 不存在dir100目录，所以将1.txt拷贝到根目录下，并命名为"/dir100"</span></span><br><span class="line">hdfs dfs -cp /d1 /d3  <span class="comment"># 可以递归复制整个目录</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-14-getmerge-合并下载多个文件到本地"><a href="#1-14-getmerge-合并下载多个文件到本地" class="headerlink" title="1.14. getmerge 合并下载多个文件到本地"></a>1.14. getmerge 合并下载多个文件到本地</h2><p>用法：<code>-getmerge [-nl] &lt;src&gt; &lt;localdst&gt;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-nl</td>
+<td>合并时，在每个文件之后添加一个空行</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>如果目标文件已存在，则覆盖</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -getmerge /*.txt merge.txt   <span class="comment"># 下载合并txt到本地，命名为merge.txt</span></span><br><span class="line">hdfs dfs -getmerge /1.txt /2.txt /3.txt merge.txt  <span class="comment"># 下载下载1.txt、2.txt、3.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-15-tail-查看文件末尾1KB数据"><a href="#1-15-tail-查看文件末尾1KB数据" class="headerlink" title="1.15. tail 查看文件末尾1KB数据"></a>1.15. tail 查看文件末尾1KB数据</h2><p>用法：<code>-tail [-f] &lt;file&gt;</code></p>
+<p>注意：是查看末尾1KB数据，而不是最后几行</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>监视文件末尾</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -tail /1.txt</span><br><span class="line">hdfs dfs -tail -f /1.txt</span><br></pre></td></tr></table></figure>
+<h2 id="1-16-rm-删除文件"><a href="#1-16-rm-删除文件" class="headerlink" title="1.16. rm 删除文件"></a>1.16. rm 删除文件</h2><p>用法：<code>-rm [-f] [-r|-R] [-skipTrash] &lt;src&gt; ...</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>若目标文件不存在，不显示提示信息</td>
+</tr>
+<tr>
+<td>-r 或 -R</td>
+<td>递归删除</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rm /1.txt   <span class="comment"># 删除1.txt</span></span><br><span class="line">hadoop fs -rm /1.txt /2.txt    <span class="comment"># 删除1.txt和2.txt</span></span><br><span class="line">hadoop fs -rm -r -f /d1    <span class="comment"># 删除目录d1</span></span><br><span class="line">hadoop fs -rm -r -f /<span class="string">'*'</span>   <span class="comment"># 删除根目录下的一切文件。星号作为参数传入，所以加引号防止星号被转义</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-17-rmdir-删除空目录"><a href="#1-17-rmdir-删除空目录" class="headerlink" title="1.17. rmdir 删除空目录"></a>1.17. rmdir 删除空目录</h2><p>用法：<code>-rmdir [--ignore-fail-on-non-empty] &lt;dir&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -rmdir /d1</span><br></pre></td></tr></table></figure>
+<h2 id="1-18-rmr-递归删除"><a href="#1-18-rmr-递归删除" class="headerlink" title="1.18. rmr 递归删除"></a>1.18. rmr 递归删除</h2><p>用法：<code>rmr</code>等价于 <code>rm -r</code></p>
+<h2 id="1-19-mv-从HDFS一个路径移动到HDFS的另一个路径"><a href="#1-19-mv-从HDFS一个路径移动到HDFS的另一个路径" class="headerlink" title="1.19. mv 从HDFS一个路径移动到HDFS的另一个路径"></a>1.19. mv 从HDFS一个路径移动到HDFS的另一个路径</h2><p>用法：<code>-mv &lt;src&gt; ... &lt;dst&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mv /d1 /d2  <span class="comment"># 更名</span></span><br><span class="line">hadoop fs -mv /*.txt /d3   <span class="comment"># 将所有txt文件移动到d3目录下</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-20-du-统计目录各文件大小"><a href="#1-20-du-统计目录各文件大小" class="headerlink" title="1.20. du 统计目录各文件大小"></a>1.20. du 统计目录各文件大小</h2><p>用法：<code>-du [-s] [-h] &lt;path&gt; ...</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-s</td>
+<td>统计目录总大小</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>显示文件大小单位便于阅读（byte单位省略）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs -du /   <span class="comment"># 统计目录下各文件大小</span></span><br><span class="line">115        /1.txt</span><br><span class="line">3          /2.txt</span><br><span class="line">3          /3.txt</span><br><span class="line">199635269  /hadoop-2.6.5.tar.gz</span><br><span class="line">338        /input</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -du -h /</span><br><span class="line">115      /1.txt</span><br><span class="line">3        /2.txt</span><br><span class="line">3        /3.txt</span><br><span class="line">190.4 M  /hadoop-2.6.5.tar.gz</span><br><span class="line">338      /input</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -du -s /</span><br><span class="line">199635728  /</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -du -s -h /</span><br><span class="line">190.4 M  /</span><br></pre></td></tr></table></figure>
+<h2 id="1-21-setrep-修改文件的数据块副本数"><a href="#1-21-setrep-修改文件的数据块副本数" class="headerlink" title="1.21. setrep 修改文件的数据块副本数"></a>1.21. setrep 修改文件的数据块副本数</h2><p>用法：<code>-setrep [-R] [-w] &lt;rep&gt; &lt;path&gt; ...</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-w</td>
+<td>It requests that the command waits for the replication to complete. This  can potentially take a very long time.</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>It is accepted for backwards compatibility. It has no effect.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ hdfs dfs -ls /1.txt</span><br><span class="line">-rw-r--r--   3 root root        115 2019-02-23 23:42 /1.txt   <span class="comment"># 现在有3个副本，分别保存在3个DataNode上</span></span><br><span class="line"></span><br><span class="line">$ hdfs dfs -setrep 2 /1.txt    <span class="comment"># 修改为2个副本。其中1个DataNode上的副本会被删除</span></span><br><span class="line">Replication 2 <span class="built_in">set</span>: /1.txt</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -ls /1.txt      </span><br><span class="line">-rw-r--r--   2 root root        115 2019-02-23 23:42 /1.txt  <span class="comment"># 只有2个副本</span></span><br><span class="line"></span><br><span class="line">$ hdfs dfs -setrep 10 /1.txt  <span class="comment"># 修改为10个副本。但是DataNode只有3个，所以目前副本数恢复到3个。直到只少动态添加7个DataNode，副本才会达到10个</span></span><br><span class="line">Replication 10 <span class="built_in">set</span>: /1.txt</span><br><span class="line"></span><br><span class="line">$ hdfs dfs -ls /1.txt</span><br><span class="line">-rw-r--r--  10 root root        115 2019-02-23 23:42 /1.txt</span><br></pre></td></tr></table></figure>
+<h2 id="1-22-touchz-创建空文件"><a href="#1-22-touchz-创建空文件" class="headerlink" title="1.22. touchz 创建空文件"></a>1.22. touchz 创建空文件</h2><p>用法：<code>-touchz &lt;path&gt; ...</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -touchz /file1</span><br><span class="line">hdfs dfs -touchz /file2 /file3</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+  <img id="wechat_subscriber_qcode" src="/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
+  <div>关注我的公众号</div>
+</div>
+
+      </div>
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持一下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="panchaoxin 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="panchaoxin 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/22/hadoop/Hadoop-运行环境搭建/" rel="next" title="Hadoop 运行环境搭建">
+                <i class="fa fa-chevron-left"></i> Hadoop 运行环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/hadoop/HDFS-Java客户端/" rel="prev" title="HDFS Java客户端">
+                HDFS Java客户端 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="panchaoxin">
+            
+              <p class="site-author-name" itemprop="name">panchaoxin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">220</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/panchaoxin" title="GitHub &rarr; https://github.com/panchaoxin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:pcx5987@163.com" title="E-Mail &rarr; mailto:pcx5987@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-HDFS-Shell"><span class="nav-number">1.</span> <span class="nav-text">1. HDFS Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-查看所有命令的用法"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 查看所有命令的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-help-查看某一命令的具体用法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. help 查看某一命令的具体用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-ls-目录浏览"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. ls 目录浏览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-mkdir-创建目录"><span class="nav-number">1.4.</span> <span class="nav-text">1.4. mkdir 创建目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-moveFromLocal-从本地移动到HDFS"><span class="nav-number">1.5.</span> <span class="nav-text">1.5. moveFromLocal 从本地移动到HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-cat-查看HDFS的文件"><span class="nav-number">1.6.</span> <span class="nav-text">1.6. cat 查看HDFS的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-appendToFile-追加文件到已存在文件末尾"><span class="nav-number">1.7.</span> <span class="nav-text">1.7. appendToFile 追加文件到已存在文件末尾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-chgrp-修改所有组"><span class="nav-number">1.8.</span> <span class="nav-text">1.8. chgrp 修改所有组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-chown-修改所有者和所有组"><span class="nav-number">1.9.</span> <span class="nav-text">1.9. chown 修改所有者和所有组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-chmod-修改权限"><span class="nav-number">1.10.</span> <span class="nav-text">1.10. chmod 修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-put-copyFromLocal-上传本地文件到HDFS"><span class="nav-number">1.11.</span> <span class="nav-text">1.11. put / copyFromLocal 上传本地文件到HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-get-copyToLocal-下载文件到本地"><span class="nav-number">1.12.</span> <span class="nav-text">1.12. get / copyToLocal 下载文件到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13-cp-从HDFS一个路径拷贝到HDFS的另一个路径"><span class="nav-number">1.13.</span> <span class="nav-text">1.13. cp 从HDFS一个路径拷贝到HDFS的另一个路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14-getmerge-合并下载多个文件到本地"><span class="nav-number">1.14.</span> <span class="nav-text">1.14. getmerge 合并下载多个文件到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-15-tail-查看文件末尾1KB数据"><span class="nav-number">1.15.</span> <span class="nav-text">1.15. tail 查看文件末尾1KB数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-16-rm-删除文件"><span class="nav-number">1.16.</span> <span class="nav-text">1.16. rm 删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-17-rmdir-删除空目录"><span class="nav-number">1.17.</span> <span class="nav-text">1.17. rmdir 删除空目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-rmr-递归删除"><span class="nav-number">1.18.</span> <span class="nav-text">1.18. rmr 递归删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-mv-从HDFS一个路径移动到HDFS的另一个路径"><span class="nav-number">1.19.</span> <span class="nav-text">1.19. mv 从HDFS一个路径移动到HDFS的另一个路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-du-统计目录各文件大小"><span class="nav-number">1.20.</span> <span class="nav-text">1.20. du 统计目录各文件大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-21-setrep-修改文件的数据块副本数"><span class="nav-number">1.21.</span> <span class="nav-text">1.21. setrep 修改文件的数据块副本数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-22-touchz-创建空文件"><span class="nav-number">1.22.</span> <span class="nav-text">1.22. touchz 创建空文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">panchaoxin</span>
+
+  
+
+  
+</div>
+
+<!-- 将以下内容注释，隐藏 powered
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
+
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+  
+
+<script src="https://cdn.bootcss.com/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'kXJe3f97Qexib577NifutDd8-gzGzoHsz',
+    appKey: '4y3bGXMxOISlXRp0H6sBFdU1',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

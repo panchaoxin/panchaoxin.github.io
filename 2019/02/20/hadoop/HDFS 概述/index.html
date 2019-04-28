@@ -50,19 +50,19 @@
 
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="/test/css/main.css?v=7.0.0">
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/test/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/test/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/test/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
 
 
-  <link rel="mask-icon" href="/test/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
 
 
 
@@ -73,7 +73,7 @@
 <script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/test/',
+    root: '/',
     scheme: 'Gemini',
     version: '7.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -98,34 +98,35 @@
 
 
 
-  <meta name="description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
+  <meta name="description" content="1. 什么是HDFS1.1. HDFS产生背景随着数据量越来越大，在一个操作系统存不下所有的数据，那么就分配到更多的操作系统管理的磁盘中，但是不方便管理和维护，迫切需要一种系统来管理多台机器上的文件，这就是分布式文件管理系统。HDFS只是分布式文件管理系统中的一种。 1.2. HDFS的定义HDFS (Hadoop Distributed File System)，它是一个文件系统，用于存储文件，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS 概述">
-<meta property="og:url" content="https://gitee.com/nahook/test/2019/02/20/hadoop/HDFS 概述/index.html">
+<meta property="og:url" content="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/index.html">
 <meta property="og:site_name" content="pancx&#39;s blog">
-<meta property="og:description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
+<meta property="og:description" content="1. 什么是HDFS1.1. HDFS产生背景随着数据量越来越大，在一个操作系统存不下所有的数据，那么就分配到更多的操作系统管理的磁盘中，但是不方便管理和维护，迫切需要一种系统来管理多台机器上的文件，这就是分布式文件管理系统。HDFS只是分布式文件管理系统中的一种。 1.2. HDFS的定义HDFS (Hadoop Distributed File System)，它是一个文件系统，用于存储文件，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/02/23/5c712b69e0491.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/23/5c712d5178b39.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20170508095655559">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550675820437&di=a9857584c45f7b44c5c5d84619ead42c&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180619%2F56205dd7f8214fa4a0662176f1d30776.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e35f21d63c.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/20/5c6d40bcce6ec.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/20/5c6d43ce953fd.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e3705a5ac9.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e37bad63d6.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e38ebbf911.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/24/5c729c91974d9.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/24/5c72a048e64bf.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e2c8bd5253.png">
-<meta property="og:updated_time" content="2019-02-21T17:54:56.731Z">
+<meta property="og:updated_time" content="2019-02-24T13:50:44.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS 概述">
-<meta name="twitter:description" content="1. 什么是HDFS1.1. HDFS特点HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。   支持超大文件  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了 实现流式数据访问  HDFS的构建思路是这样的：一次写入、多次读取是&amp;gt;最高效的访问模式。数据集通常由数据源生成或从数据源复制而来，接着长时间在此数据集上进">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170508095655559">
+<meta name="twitter:description" content="1. 什么是HDFS1.1. HDFS产生背景随着数据量越来越大，在一个操作系统存不下所有的数据，那么就分配到更多的操作系统管理的磁盘中，但是不方便管理和维护，迫切需要一种系统来管理多台机器上的文件，这就是分布式文件管理系统。HDFS只是分布式文件管理系统中的一种。 1.2. HDFS的定义HDFS (Hadoop Distributed File System)，它是一个文件系统，用于存储文件，">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/23/5c712b69e0491.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://gitee.com/nahook/test/2019/02/20/hadoop/HDFS 概述/">
+  <link rel="canonical" href="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/">
 
 
 
@@ -176,7 +177,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -189,13 +190,13 @@
     <a href="https://github.com/panchaoxin" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <!-- Github Cornors end -->
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/test/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">pancx's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -234,7 +235,7 @@
 
     
 
-    <a href="/test/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -251,7 +252,7 @@
 
     
 
-    <a href="/test/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -268,7 +269,7 @@
 
     
 
-    <a href="/test/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -285,7 +286,7 @@
 
     
 
-    <a href="/test/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
 
@@ -361,20 +362,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gitee.com/nahook/test/test/2019/02/20/hadoop/HDFS 概述/">
+    <link itemprop="mainEntityOfPage" href="https://panchaoxin.github.io/2019/02/20/hadoop/HDFS 概述/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="panchaoxin">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/test/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="pancx's blog">
     </span>
 
@@ -426,7 +427,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-22 01:54:56" itemprop="dateModified" datetime="2019-02-22T01:54:56+08:00">2019-02-22</time>
+                <time title="修改时间：2019-02-24 21:50:44" itemprop="dateModified" datetime="2019-02-24T21:50:44+08:00">2019-02-24</time>
               
             
           </span>
@@ -443,14 +444,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/test/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/test/categories/Hadoop/HDFS/" itemprop="url" rel="index"><span itemprop="name">HDFS</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Hadoop/HDFS/" itemprop="url" rel="index"><span itemprop="name">HDFS</span></a></span>
 
                 
                 
@@ -469,8 +470,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/test/2019/02/20/hadoop/HDFS 概述/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/test/2019/02/20/hadoop/HDFS 概述/" itemprop="commentCount"></span>
+                <a href="/2019/02/20/hadoop/HDFS 概述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/20/hadoop/HDFS 概述/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -505,7 +506,10 @@
       
 
       
-        <h1 id="1-什么是HDFS"><a href="#1-什么是HDFS" class="headerlink" title="1. 什么是HDFS"></a>1. 什么是HDFS</h1><h2 id="1-1-HDFS特点"><a href="#1-1-HDFS特点" class="headerlink" title="1.1. HDFS特点"></a>1.1. HDFS特点</h2><p>HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。</p>
+        <h1 id="1-什么是HDFS"><a href="#1-什么是HDFS" class="headerlink" title="1. 什么是HDFS"></a>1. 什么是HDFS</h1><h2 id="1-1-HDFS产生背景"><a href="#1-1-HDFS产生背景" class="headerlink" title="1.1. HDFS产生背景"></a>1.1. HDFS产生背景</h2><p>随着数据量越来越大，在一个操作系统存不下所有的数据，那么就分配到更多的操作系统管理的磁盘中，但是不方便管理和维护，迫切需要一种系统来管理多台机器上的文件，这就是分布式文件管理系统。HDFS只是分布式文件管理系统中的一种。</p>
+<h2 id="1-2-HDFS的定义"><a href="#1-2-HDFS的定义" class="headerlink" title="1.2. HDFS的定义"></a>1.2. HDFS的定义</h2><p>HDFS (Hadoop Distributed File System)，它是一个文件系统，用于存储文件，通过目录树来定位文件；其次，它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。</p>
+<p>HDFS的使用场景：<strong>适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用</strong>。</p>
+<h2 id="1-3-HDFS特点"><a href="#1-3-HDFS特点" class="headerlink" title="1.3. HDFS特点"></a>1.3. HDFS特点</h2><p>HDFS以流式数据访问模式来存储超大文件，运行于商用硬件集群上。</p>
 <blockquote>
 <ul>
 <li><strong>支持超大文件</strong>  “超大文件”在这里指具有几百MB、几百GB甚至几百TB大小的文件。目前已经有存储PB级数据的Hadoop集群了</li>
@@ -515,11 +519,14 @@
 <li><strong>强大的跨平台兼容性</strong>  Hadoop是基于Java开发的，具有很好的跨平台特性</li>
 </ul>
 </blockquote>
-<h3 id="1-1-1-HDFS优点："><a href="#1-1-1-HDFS优点：" class="headerlink" title="1.1.1. HDFS优点："></a>1.1.1. HDFS优点：</h3><blockquote>
+<h3 id="1-3-1-HDFS优点："><a href="#1-3-1-HDFS优点：" class="headerlink" title="1.3.1. HDFS优点："></a>1.3.1. HDFS优点：</h3><blockquote>
 <ul>
-<li>高容错性<ul>
+<li><p>高容错性</p>
+<ul>
 <li>数据自动保存多个副本</li>
-<li>副本丢失后，自动恢复</li>
+<li><p>副本丢失后，自动恢复</p>
+<p><img src="https://i.loli.net/2019/02/23/5c712b69e0491.png" alt=""></p>
+</li>
 </ul>
 </li>
 <li>适合批处理<ul>
@@ -528,9 +535,8 @@
 </ul>
 </li>
 <li>适合大数据处理<ul>
-<li>GB、TB、甚至PB级</li>
-<li>百万规模以上的文件数量</li>
-<li>10K+节点</li>
+<li>数据规模：GB、TB、甚至PB级</li>
+<li>文件规模：百万规模以上的文件数量</li>
 </ul>
 </li>
 <li>可构建在廉价机器上<ul>
@@ -540,48 +546,59 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="1-1-2-HDFS缺点"><a href="#1-1-2-HDFS缺点" class="headerlink" title="1.1.2. HDFS缺点"></a>1.1.2. HDFS缺点</h3><blockquote>
+<h3 id="1-3-2-HDFS缺点"><a href="#1-3-2-HDFS缺点" class="headerlink" title="1.3.2. HDFS缺点"></a>1.3.2. HDFS缺点</h3><blockquote>
 <ul>
-<li>低延迟数据访问<ul>
-<li>比如毫秒级</li>
-<li>低延迟与高吞吐率</li>
+<li>不适合低延迟数据访问<ul>
+<li>比如毫秒级的数据存储（刚存完就能访问），低延迟与高吞吐率</li>
 </ul>
 </li>
-<li>小文件存取<ul>
-<li>占用NameNode大量内存</li>
-<li>寻道时间超过读取时间</li>
+<li>无法高效存取小文件<ul>
+<li>每存储一个文件，至少要消耗NameNode节点150字节的内存。小文件数量多，会非常占用NameNode大量内存</li>
+<li>小文件存储的寻道时间超过读取时间，违反了HDFS的设计目标</li>
 </ul>
 </li>
-<li>并发写入、文件随机修改<ul>
-<li>一个文件只能有一个写者</li>
-<li>仅支持append</li>
+<li><p>不支持并发写入、文件随机修改</p>
+<ul>
+<li><p>一个文件只能有一个写者。例如用户A在上传ss.txt时，用户B不能同时上传ss.txt</p>
+<p><img src="https://i.loli.net/2019/02/23/5c712d5178b39.png" alt=""></p>
+</li>
+<li><p>仅支持数据追加append，不支持文件的随机修改</p>
+</li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<h1 id="2-HDFS架构"><a href="#2-HDFS架构" class="headerlink" title="2. HDFS架构"></a>2. HDFS架构</h1><p><img src="https://img-blog.csdn.net/20170508095655559" alt></p>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1550675820437&amp;di=a9857584c45f7b44c5c5d84619ead42c&amp;imgtype=0&amp;src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180619%2F56205dd7f8214fa4a0662176f1d30776.jpg" alt></p>
-<h2 id="2-1-HDFS数据单元：数据块"><a href="#2-1-HDFS数据单元：数据块" class="headerlink" title="2.1. HDFS数据单元：数据块"></a>2.1. HDFS数据单元：数据块</h2><p>数据以block形式存储。一个block在磁盘上对应两个文件，一个是数据本身，一个是块的元数据（包含数据块长度、校验和、时间戳）</p>
+<h1 id="2-HDFS架构"><a href="#2-HDFS架构" class="headerlink" title="2. HDFS架构"></a>2. HDFS架构</h1><p><img src="https://img-blog.csdn.net/20170508095655559" alt=""></p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1550675820437&amp;di=a9857584c45f7b44c5c5d84619ead42c&amp;imgtype=0&amp;src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180619%2F56205dd7f8214fa4a0662176f1d30776.jpg" alt=""></p>
+<h2 id="2-1-HDFS数据单元：数据块"><a href="#2-1-HDFS数据单元：数据块" class="headerlink" title="2.1. HDFS数据单元：数据块"></a>2.1. HDFS数据单元：数据块</h2><p>HDFS中的文件在物理上以block形式存储。一个block在磁盘上对应两个文件，一个是数据本身，一个是块的元数据（包含数据块长度、校验和、时间戳）</p>
 <p>注意HDFS中有两种元数据：</p>
 <ul>
 <li>数据块元数据：存放在DataNode上，包含数据块长度、校验和、时间戳</li>
 <li>文件元数据：存放在NameNode上，包含文件名、文件目录结构、文件的块副本数、文件的时间戳、文件权限、文件的数据块列表以及各个块所在DataNode等信息</li>
 </ul>
-<h3 id="2-1-1-块大小"><a href="#2-1-1-块大小" class="headerlink" title="2.1.1. 块大小"></a>2.1.1. 块大小</h3><ul>
-<li><p>Hadoop2.0中，块大小默认为64M</p>
+<h3 id="2-1-1-块大小"><a href="#2-1-1-块大小" class="headerlink" title="2.1.1. 块大小"></a>2.1.1. 块大小</h3><p>块大小可通过<code>dfs.blocksize</code>来配置</p>
+<ul>
+<li><p>Hadoop1.0中，块大小默认为64M</p>
 </li>
 <li><p>Hadoop2.0中，块大小默认为128M。例如：200MB的文件要分为2块，分为128M + 72M</p>
 </li>
 </ul>
-<h3 id="2-1-2-数据块为什么这么大"><a href="#2-1-2-数据块为什么这么大" class="headerlink" title="2.1.2. 数据块为什么这么大?"></a>2.1.2. 数据块为什么这么大?</h3><p>减少硬盘寻道时间(disk seek time)</p>
+<h3 id="2-1-2-为什么Hadoop2的块大小选择128M"><a href="#2-1-2-为什么Hadoop2的块大小选择128M" class="headerlink" title="2.1.2. 为什么Hadoop2的块大小选择128M"></a>2.1.2. 为什么Hadoop2的块大小选择128M</h3><ul>
+<li>假设寻址时间约为10ms，即HDFS查找到目标block起始位置的时间为10ms</li>
+<li>经过研究，<strong>寻址时间为传输时间的1%时，为最佳状态</strong>。因此，传输时间=10ms/0.01=1000ms=1s</li>
+<li>目前机械磁盘的传输速率普遍约为100MB/S。1秒内可以写数据100MB，近似128MB，所以块大小就选择了128M。</li>
+</ul>
+<p>如果使用SSD，其传输速率远大于100MB/S，完全可以设置块大小为256M甚至更大。</p>
+<p><strong>总结：HDFS块大小设置主要取决于磁盘传输速率</strong>。</p>
+<h3 id="2-1-3-为什么数据块不能设置太小"><a href="#2-1-3-为什么数据块不能设置太小" class="headerlink" title="2.1.3. 为什么数据块不能设置太小?"></a>2.1.3. 为什么数据块不能设置太小?</h3><p>HDFS块设置太小，会增加硬盘寻址时间（硬盘寻道时间）。</p>
 <blockquote>
-<p>HDFS的块比磁盘的块大，其目的是为了最小化寻址开销。如果块足够大，从磁盘传输数据的时间会明显大于定位这个块开始位置所需的时间。因而，传输一个由多个块组成的大文件的时间取决于磁盘传输速率。</p>
+<p>块设置太小，会导致块数量非常多，只到其中一个数据块花费的时间自然就更长。这违反了HDFS的设计原则。</p>
 </blockquote>
-<p>减少Namenode内存消耗</p>
+<p>HDFS块设置太小，会增加Namenode内存消耗</p>
 <blockquote>
 <p> 对于HDFS，他只有一个Namenode节点，他的内存相对于Datanode来说，是极其有限的。然而，namenode需要在其内存FSImage文件中中记录在Datanode中的数据块信息，假如数据块大小设置过少，而需要维护的数据块信息就会过多，那Namenode的内存可能就会伤不起了</p>
 </blockquote>
-<h3 id="2-1-3-数据块为什么不能过大"><a href="#2-1-3-数据块为什么不能过大" class="headerlink" title="2.1.3. 数据块为什么不能过大"></a>2.1.3. 数据块为什么不能过大</h3><p>Map崩溃问题</p>
+<h3 id="2-1-4-为什么数据块不能设置太大"><a href="#2-1-4-为什么数据块不能设置太大" class="headerlink" title="2.1.4. 为什么数据块不能设置太大?"></a>2.1.4. 为什么数据块不能设置太大?</h3><p>Map崩溃问题</p>
 <blockquote>
 <p>系统需要重新启动，启动过程需要重新加载数据，数据块越大，数据加载时间越长，系统恢复过程越长</p>
 </blockquote>
@@ -597,19 +614,19 @@
 <blockquote>
 <p>在MapReduce框架里，Map之后的数据是要经过排序才执行Reduce操作的。想想归并排序算法的思想，对小文件进行排序，然后将小文件归并成大文件的思想。如果数据块很大，排序就变慢了。</p>
 </blockquote>
-<h3 id="2-1-4-数据块副本"><a href="#2-1-4-数据块副本" class="headerlink" title="2.1.4. 数据块副本"></a>2.1.4. 数据块副本</h3><p>每个块有多个副本，存储在不同的DataNode上。副本数默认为3</p>
-<h3 id="2-1-5-数据块副本存放策略"><a href="#2-1-5-数据块副本存放策略" class="headerlink" title="2.1.5. 数据块副本存放策略"></a>2.1.5. 数据块副本存放策略</h3><p>假设数据块有三个副本：</p>
+<h3 id="2-1-5-数据块副本数"><a href="#2-1-5-数据块副本数" class="headerlink" title="2.1.5. 数据块副本数"></a>2.1.5. 数据块副本数</h3><p>每个块有多个副本，存储在不同的DataNode上。副本数默认为3</p>
+<h3 id="2-1-6-数据块副本存放策略"><a href="#2-1-6-数据块副本存放策略" class="headerlink" title="2.1.6. 数据块副本存放策略"></a>2.1.6. 数据块副本存放策略</h3><p>假设数据块有三个副本：</p>
 <ul>
-<li><p>第一个副本：放置在本地机架的节点上（就近原则）；如果是集群外提交，则随机挑选一台磁盘不太满、CPU不太忙的节点</p>
+<li><p>第一个副本：放置在Client本地机架的节点上（就近原则）；如果Client是集群外提交，则随机挑选一台磁盘不太满、CPU不太忙的节点</p>
 </li>
 <li><p>第二个副本：放置在与第一个副本不同的机架的节点上。因为同一个机架一般使用同一个电源，电源挂掉则整个机架的服务器都挂掉。所以要放在另一个机架的节点上。</p>
 </li>
-<li><p>第三个副本：与第二个副本相同机架的其他节点上。因为前2个副本已经分别存放在位于两个不同机架的节点上，安全性已经得到一定的保证。同一个机架的节点一般连接同一个高速交换机，所以现在把第3个副本放到与第2个副本相同的机架上，还保证了数据的快速传输。</p>
+<li><p>第三个副本：与第二个副本相同机架的其他节点上，随机节点。因为前2个副本已经分别存放在位于两个不同机架的节点上，安全性已经得到一定的保证。同一个机架的节点一般连接同一个高速交换机，所以现在把第3个副本放到与第2个副本相同的机架上，还保证了数据的快速传输。</p>
 </li>
 </ul>
-<p><img src="https://i.loli.net/2019/02/21/5c6e35f21d63c.png" alt></p>
+<p><img src="https://i.loli.net/2019/02/21/5c6e35f21d63c.png" alt=""></p>
 <p>如果有更多的其它副本：则挑选随机节点</p>
-<h3 id="2-1-6-数据块损坏（corruption）处理"><a href="#2-1-6-数据块损坏（corruption）处理" class="headerlink" title="2.1.6. 数据块损坏（corruption）处理"></a>2.1.6. 数据块损坏（corruption）处理</h3><p>情况1：client读取数据时</p>
+<h3 id="2-1-7-数据块损坏（corruption）处理"><a href="#2-1-7-数据块损坏（corruption）处理" class="headerlink" title="2.1.7. 数据块损坏（corruption）处理"></a>2.1.7. 数据块损坏（corruption）处理</h3><p>情况1：client读取数据时</p>
 <ul>
 <li>客户端请求DataNode读取数据块，DataNode读取block时，会计算该block的checksum</li>
 <li>如果计算得到的checksum，与block创建时的值不一样，说明block已经损坏</li>
@@ -617,87 +634,64 @@
 <li>下一次DataNode向NameNode发送块列表报告时，NameNode得知该数据块已经损坏，会复制该block的副本，达到预设的副本数</li>
 </ul>
 <p>情况2：DataNode会自动在其文件创建后三周验证其checksum，处理同上。</p>
-<h3 id="2-1-7-验证每个数据块有两个文件"><a href="#2-1-7-验证每个数据块有两个文件" class="headerlink" title="2.1.7. 验证每个数据块有两个文件"></a>2.1.7. 验证每个数据块有两个文件</h3><p><code>dfs/data/</code> 是HDFS数据的存储路径。可以看到每个数据块有两份文件，一个是数据本身，一个是元数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree /usr/local/hadoop/tmp/dfs/data/</span><br><span class="line">/usr/local/hadoop/tmp/dfs/data/</span><br><span class="line">├── current</span><br><span class="line">│   ├── BP-798495748-192.168.57.100-1550512504378</span><br><span class="line">│   │   ├── current</span><br><span class="line">│   │   │   ├── dfsUsed</span><br><span class="line">│   │   │   ├── finalized</span><br><span class="line">│   │   │   │   └── subdir0</span><br><span class="line">│   │   │   │       └── subdir0</span><br><span class="line">│   │   │   │           ├── blk_1073741825   # 数据文件</span><br><span class="line">│   │   │   │           ├── blk_1073741825_1003.meta  # 元数据文件</span><br><span class="line">│   │   │   │           ├── blk_1073741826</span><br><span class="line">│   │   │   │           ├── blk_1073741826_1004.meta</span><br><span class="line">│   │   │   │           ├── blk_1073741827</span><br><span class="line">│   │   │   │           └── blk_1073741827_1005.meta</span><br><span class="line">│   │   │   ├── rbw</span><br><span class="line">│   │   │   └── VERSION</span><br><span class="line">│   │   ├── dncp_block_verification.log.curr</span><br><span class="line">│   │   ├── dncp_block_verification.log.prev</span><br><span class="line">│   │   └── tmp</span><br><span class="line">│   └── VERSION</span><br><span class="line">└── in_use.lock</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-8-验证每个数据块有两个文件"><a href="#2-1-8-验证每个数据块有两个文件" class="headerlink" title="2.1.8. 验证每个数据块有两个文件"></a>2.1.8. 验证每个数据块有两个文件</h3><p><code>dfs/data/</code> 是HDFS数据的存储路径。可以看到每个数据块有两份文件，一个是数据本身，一个是元数据。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tree /usr/<span class="built_in">local</span>/hadoop/tmp/dfs/data/</span></span><br><span class="line">/usr/local/hadoop/tmp/dfs/data/</span><br><span class="line">├── current</span><br><span class="line">│   ├── BP-798495748-192.168.57.100-1550512504378</span><br><span class="line">│   │   ├── current</span><br><span class="line">│   │   │   ├── dfsUsed</span><br><span class="line">│   │   │   ├── finalized</span><br><span class="line">│   │   │   │   └── subdir0</span><br><span class="line">│   │   │   │       └── subdir0</span><br><span class="line">│   │   │   │           ├── blk_1073741825   # 数据文件</span><br><span class="line">│   │   │   │           ├── blk_1073741825_1003.meta  # 元数据文件</span><br><span class="line">│   │   │   │           ├── blk_1073741826</span><br><span class="line">│   │   │   │           ├── blk_1073741826_1004.meta</span><br><span class="line">│   │   │   │           ├── blk_1073741827</span><br><span class="line">│   │   │   │           └── blk_1073741827_1005.meta</span><br><span class="line">│   │   │   ├── rbw</span><br><span class="line">│   │   │   └── VERSION</span><br><span class="line">│   │   ├── dncp_block_verification.log.curr</span><br><span class="line">│   │   ├── dncp_block_verification.log.prev</span><br><span class="line">│   │   └── tmp</span><br><span class="line">│   └── VERSION</span><br><span class="line">└── in_use.lock</span><br></pre></td></tr></table></figure>
 <h2 id="2-2-HDFS命名空间管理"><a href="#2-2-HDFS命名空间管理" class="headerlink" title="2.2. HDFS命名空间管理"></a>2.2. HDFS命名空间管理</h2><p>HDFS的命名空间包含目录、文件和数据块</p>
-<p><img src="https://i.loli.net/2019/02/20/5c6d40bcce6ec.png" alt></p>
+<p><img src="https://i.loli.net/2019/02/20/5c6d40bcce6ec.png" alt=""></p>
 <p>HDFS使用的是传统的分级文件体系，因此，用户可以像使用普通文件系统一样，创建、删除目录和文件，在目录间转移文件，重命名文件等。</p>
 <p>注意：只能在文件中追加信息，但是不能修改文件内容。</p>
 <h2 id="2-3-NameNode（NN）"><a href="#2-3-NameNode（NN）" class="headerlink" title="2.3. NameNode（NN）"></a>2.3. NameNode（NN）</h2><p>NameNode是整个HDFS的管家</p>
 <ul>
-<li>管理整个HDFS的元数据（MetaData）</li>
-<li>管理客户端对HDFS的访问。客户端读写数据实际是自己到DataNode上操作的，但是要先与NameNode交互，得到元数据信息（数据在哪些DataNode上）。<strong>NameNode会根据全局情况做出决定，客户端读取数据时，NameNode尽量让客户端读取最近的副本</strong>。</li>
-<li>决定数据块副本存放在哪些DataNode上。</li>
+<li>管理整个HDFS的名称空间（也称元数据metadata）</li>
+<li>处理客户端的读写请求。管理客户端对HDFS的访问。客户端读写数据实际是自己到DataNode上操作的，但是要先与NameNode交互，得到元数据信息（数据在哪些DataNode上）。<strong>NameNode会根据全局情况做出决定，客户端读取数据时，NameNode尽量让客户端读取最近的副本</strong>。</li>
+<li>配置副本策略，决定数据块副本存放在哪些DataNode上。</li>
 <li>周期性从每个DataNode接收心跳信号和块状态报告（BlockReport）。块状态报告包含了该DataNode上所有的数据块列表信息。</li>
 </ul>
-<p>NameNode保存了两个核心的数据结构，即FsImage（保存HDFS元数据）和EditLog（保存HDFS操作日志）</p>
+<p>NameNode保存了两个核心的数据结构，即FsImage（保存HDFS元数据）和edits（保存HDFS操作日志）</p>
 <ul>
 <li>FsImage用于维护文件系统树以及文件树中所有的文件和文件夹的元数据-</li>
-<li>EditLog中记录了所有针对文件的创建、删除、重命名等操作</li>
+<li>edits中记录了所有针对文件的创建、删除、重命名等操作</li>
 </ul>
-<p><img src="https://i.loli.net/2019/02/20/5c6d43ce953fd.png" alt></p>
-<h3 id="2-3-1-FsImage和EditLog"><a href="#2-3-1-FsImage和EditLog" class="headerlink" title="2.3.1. FsImage和EditLog"></a>2.3.1. FsImage和EditLog</h3><p>元数据在NameNode内存中有一份，同时还要写到磁盘上，文件名为FsImage</p>
+<p><img src="https://i.loli.net/2019/02/20/5c6d43ce953fd.png" alt=""></p>
+<h3 id="2-3-1-FsImage和edits"><a href="#2-3-1-FsImage和edits" class="headerlink" title="2.3.1. FsImage和edits"></a>2.3.1. FsImage和edits</h3><p>元数据在NameNode内存中有一份，同时还要写到磁盘上，文件名为FsImage</p>
 <p>FsImage文件包含文件系统中所有目录和文件inode的序列化形式。每个inode是一个文件或目录的元数据的内部表示，并包含此类信息：文件的复制等级、修改和访问时间、访问权限、块大小以及组成文件的块。对于目录，则存储修改时间、权限和配额元数据。</p>
 <p>FsImage文件没有记录块存储在哪个数据节点。而是由名称节点把这些映射保留在内存中，当数据节点加入HDFS集群时，数据节点会把自己所包含的块列表告知给名称节点，直接加载到NameNode的内存中，此后会定期执行这种告知操作，以确保名称节点的块映射是最新的。</p>
 <p>元数据发生改变时，不会立即同步到FsImage文件，而是在edits记录元数据的操作日志。经过一段时间后，再由SecondaryNameNode将edits中的内容合并到FsImage中</p>
-<h3 id="2-3-2-NameNode需要格式化"><a href="#2-3-2-NameNode需要格式化" class="headerlink" title="2.3.2. NameNode需要格式化"></a>2.3.2. NameNode需要格式化</h3><p>NameNode一开始需要格式化，目的是生成FsImage</p>
+<h3 id="2-3-2-为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？"><a href="#2-3-2-为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？" class="headerlink" title="2.3.2. 为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？"></a>2.3.2. 为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？</h3><p>首先，我们做个假设，如果元数据直接存储在NameNode节点的磁盘中，因为经常需要进行随机访问，还有响应客户请求，必然是效率过低。因此，元数据需要存放在内存中。但如果只存在内存中，一旦断电，元数据丢失，整个集群就无法工作了。因此产生在磁盘中备份元数据的FsImage。</p>
+<h3 id="2-3-3-为什么要有Edits操作日志"><a href="#2-3-3-为什么要有Edits操作日志" class="headerlink" title="2.3.3. 为什么要有Edits操作日志"></a>2.3.3. 为什么要有Edits操作日志</h3><p>当在内存中的元数据更新时，如果同时更新FsImage，就会导致效率过低，但如果不更新，就会存在一致性问题，一旦NameNode节点断电，就会产生数据丢失。因此，引入Edits文件（只进行追加操作，效率很高）。每当元数据有更新或者添加元数据时，修改内存中的元数据并追加到Edits中。这样，一旦NameNode节点断电，可以通过FsImage和Edits的合并，合成元数据。</p>
+<h3 id="2-3-4-NameNode需要格式化"><a href="#2-3-4-NameNode需要格式化" class="headerlink" title="2.3.4. NameNode需要格式化"></a>2.3.4. NameNode需要格式化</h3><p>NameNode一开始需要格式化，目的是生成FsImage</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-3-NameNode启动过程"><a href="#2-3-3-NameNode启动过程" class="headerlink" title="2.3.3. NameNode启动过程"></a>2.3.3. NameNode启动过程</h3><p>NameNode启动过程：</p>
+<h2 id="2-4-DataNode（DN）"><a href="#2-4-DataNode（DN）" class="headerlink" title="2.4. DataNode（DN）"></a>2.4. DataNode（DN）</h2><ul>
+<li>存储块数据、及其数据长度、校验和、时间戳</li>
+<li>负责执行数据块读写操作</li>
+<li>DataNode启动后向NameNode注册，通过后，周期性（1小时）向NameNode上报块列表信息，以保证集群的可靠性</li>
+<li>每3秒一次向NameNode发送心跳，心跳返回结果带有NameNode给DataNode命令（如复制块数据到另一台机器，或删除某个数据块）。如果NameNode超过10分钟没有收到某个DataNode的心心跳，则标记该DataNode不可用，之后NameNode都不会再向该DataNode传输任何数据，除非该DataNode启动后向NameNode重新注册</li>
+</ul>
+<p><img src="https://i.loli.net/2019/02/24/5c729c91974d9.png" alt=""></p>
+<h3 id="2-4-1-数据完整性"><a href="#2-4-1-数据完整性" class="headerlink" title="2.4.1. 数据完整性"></a>2.4.1. 数据完整性</h3><p>思考：如果电脑磁盘里面存储的数据是控制高铁信号灯的红灯信号（1）和绿灯信号（0），但是存储该数据的磁盘坏了，一直显示是绿灯，是否很危险？同理DataNode节点上的数据损坏了，却没有发现，是否也很危险，那么如何解决呢？</p>
+<p>如下是DataNode节点保证数据完整性的方法。<br>1）当DataNode读取Block的时候，它会计算CheckSum。<br>2）如果计算后的CheckSum，与Block创建时值不一样，说明Block已经损坏。<br>3）Client读取其他DataNode上的Block。<br>4）DataNode在其文件创建后周期验证CheckSum，如图3-16所示。</p>
+<h3 id="2-4-2-DataNode掉线时限参数设置"><a href="#2-4-2-DataNode掉线时限参数设置" class="headerlink" title="2.4.2. DataNode掉线时限参数设置"></a>2.4.2. DataNode掉线时限参数设置</h3><p><img src="https://i.loli.net/2019/02/24/5c72a048e64bf.png" alt=""></p>
+<p>需要注意的是hdfs-site.xml 配置文件中的heartbeat.recheck.interval的单位为毫秒，dfs.heartbeat.interval的单位为秒</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单位为毫秒 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.heartbeat.recheck-interval<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>300000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单位为秒 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.heartbeat.interval<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-5-SecondaryNameNode（SNN-2NN）"><a href="#2-5-SecondaryNameNode（SNN-2NN）" class="headerlink" title="2.5. SecondaryNameNode（SNN/2NN）"></a>2.5. SecondaryNameNode（SNN/2NN）</h2><p>SecondaryNameNode的作用：</p>
 <ul>
-<li>读取fsimage和editlog到内存中</li>
-<li>执行editlog的各项操作，更新内存中的元数据，存在内存中的元数据支持客户端的读操作</li>
-<li>将内存中的元数据写到新的fsimage文件中</li>
-<li>创建一个新的空的editlog文件。<strong>同时启动HDFS的安全模式</strong></li>
-<li>启动DataNode<ul>
-<li>向NameNode注册</li>
-<li>发送BlockReport。发送完之后，<strong>关闭HDFS的安全模式</strong>。</li>
-</ul>
-</li>
-<li>之后HDFS的所有操作都记录到新的editlog中</li>
-</ul>
-<p>HDFS的安全模式（SafeMode）：</p>
-<ul>
-<li>等待DataNode向NameNode发送BlockReport。在安全模式期间，客户端只能读取HDFS，但是不能写HDFS（创建文件夹、上传文件、删除文件 都不能操作）。</li>
-<li>汇总所有的BlockReport。一开始NameNode加载完fsimage和editlog时，就得知整个文件系统总共有多少个block（total blocks）。从不断接收到的BlockReport中，不断累计得到所有的DataNode上总共有多少block（reported blocks）。计算 reported blocks / total blocks，如果比值 &gt;= 99.9%，安全模式才会退出。</li>
-<li>安全模式退出后，客户端就能对HDFS执行写操作了。</li>
-</ul>
-<h3 id="2-3-4-验证安全模式的存在"><a href="#2-3-4-验证安全模式的存在" class="headerlink" title="2.3.4. 验证安全模式的存在"></a>2.3.4. 验证安全模式的存在</h3><p>关闭HDFS所有服务，只启动namenode</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop-daemon.sh start namenode</span><br></pre></td></tr></table></figure>
-<p>查看namenode的web ui，可以看到NameNode处于SafeMode。</p>
-<ul>
-<li>total blocks有3个，接收到的reported blocks只有0个</li>
-<li>只有当 reported blocks / total blocks &gt;= 0.9990，才会关闭SafeMode</li>
-</ul>
-<p><img src="https://i.loli.net/2019/02/21/5c6e3705a5ac9.png" alt></p>
-<p>启动datanode</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop-daemon.sh start datanode</span><br></pre></td></tr></table></figure>
-<p>启动后，在短时间内再次查看namenode的web ui，可以看到NameNode仍处于SafeMode。total blocks有3个，接收到的reported blocks也有3个，所以 reported blocks / total blocks = 1 &gt;= 0.9990，已经触发了关闭SafeMode的条件。因此在30秒之后，NameNode将自动关闭SafeMode</p>
-<p><img src="https://i.loli.net/2019/02/21/5c6e37bad63d6.png" alt></p>
-<p>经过30秒后，再次查看namenode的web ui</p>
-<p><img src="https://i.loli.net/2019/02/21/5c6e38ebbf911.png" alt></p>
-<h3 id="2-3-5-为什么达到关闭SafeMode的条件，还要缓冲30秒？"><a href="#2-3-5-为什么达到关闭SafeMode的条件，还要缓冲30秒？" class="headerlink" title="2.3.5. 为什么达到关闭SafeMode的条件，还要缓冲30秒？"></a>2.3.5. 为什么达到关闭SafeMode的条件，还要缓冲30秒？</h3><p>服务器求稳不求快，给30秒让HDFS稳定一下</p>
-<h3 id="2-3-6-手动操作SafeMode"><a href="#2-3-6-手动操作SafeMode" class="headerlink" title="2.3.6. 手动操作SafeMode"></a>2.3.6. 手动操作SafeMode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get   <span class="comment"># 查看是否处于安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode enter   <span class="comment"># 手动进入安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode leave   <span class="comment"># 强制退出安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode <span class="built_in">wait</span>   <span class="comment"># 挂起shell，直到安全模式退出</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-4-DataNode"><a href="#2-4-DataNode" class="headerlink" title="2.4. DataNode"></a>2.4. DataNode</h2><ul>
-<li>负责数据块的存储和读写。存储块数据以及块数据的校验和</li>
-<li>DataNode启动后向NameNode注册，通过后，周期性（1小时）向NameNode上报块列表信息</li>
-<li>每3秒一次向NameNode发送心跳，心跳返回结果带有NameNode给DataNode命令（如复制块数据到另一台机器，或删除某个数据块）。如果NameNode超过10分钟没有收到某个DataNode，则认为该DataNode不可用。</li>
-</ul>
-<h2 id="2-5-SecondaryNameNode（SNN）"><a href="#2-5-SecondaryNameNode（SNN）" class="headerlink" title="2.5. SecondaryNameNode（SNN）"></a>2.5. SecondaryNameNode（SNN）</h2><p>SecondaryNameNode的作用：</p>
-<ul>
-<li>辅助NameNode合并fsimage和editlog</li>
-<li>辅助合并fsimage和editlog时，会在本地保留一份fsimage.ckpt，所以还起到元数据冷备份的作用</li>
+<li>辅助NameNode合并fsimage和edits</li>
+<li>辅助合并fsimage和edits时，会在本地保留一份fsimage.ckpt，所以还起到元数据冷备份的作用。紧急情况下，可辅助恢复NameNode</li>
 </ul>
 <p>即使SecondaryNameNode不启动，HDFS也能正常工作</p>
-<h3 id="2-5-1-为什么要辅助NameNode合并fsimage和editlog"><a href="#2-5-1-为什么要辅助NameNode合并fsimage和editlog" class="headerlink" title="2.5.1. 为什么要辅助NameNode合并fsimage和editlog"></a>2.5.1. 为什么要辅助NameNode合并fsimage和editlog</h3><p>假如HDFS起来之后，几个月都没有停止、重启。如果操作了很多数据，editlog就会非常大，下一次NameNode重启时，读取editlog要花很多时间。</p>
-<p>此时就需要SecondaryNameNode，每隔一段时间（当然触发情况不止是这一个），就去帮助NameNode合并fsimage和editlog，生成新的fsimage，再把新的fsimage复制给NameNode。</p>
-<p>这样下一次NameNode重启时，editlog就不会特别大，读取editlog不用花太多时间，就加快了NameNode的启动时间。</p>
+<h3 id="2-5-1-为什么要辅助NameNode合并fsimage和edits"><a href="#2-5-1-为什么要辅助NameNode合并fsimage和edits" class="headerlink" title="2.5.1. 为什么要辅助NameNode合并fsimage和edits"></a>2.5.1. 为什么要辅助NameNode合并fsimage和edits</h3><p>假如HDFS起来之后，几个月都没有停止、重启。如果操作了很多数据，edits就会非常大，下一次NameNode重启时，读取edits要花很多时间。</p>
+<p>此时就需要SecondaryNameNode，每隔一段时间（当然触发情况不止是这一个），就去帮助NameNode合并fsimage和edits，生成新的fsimage，再把新的fsimage复制给NameNode。</p>
+<p>这样下一次NameNode重启时，edits就不会特别大，读取edits不用花太多时间，就加快了NameNode的启动时间。</p>
 <h3 id="2-5-2-SecondaryNameNode触发合并的情况"><a href="#2-5-2-SecondaryNameNode触发合并的情况" class="headerlink" title="2.5.2. SecondaryNameNode触发合并的情况"></a>2.5.2. SecondaryNameNode触发合并的情况</h3><ul>
-<li><p>情况1：根据配置文件设置的时间间隔fs.checkpoint.period 默认3600秒（1小时）。</p>
+<li><p>情况1：根据hdfs-site.xml设置的dfs.namenode.checkpoint.period，checkpoint默认周期3600秒（1小时）</p>
 </li>
-<li><p>情况2：根据配置文件设置EditsLog大小 fs.checkpoint.size 规定edits文件的最大值默认是64MB</p>
+<li><p>情况2：根据hdfs-site.xml设置的dfs.namenode.checkpoint.txns，默认edits中的记录超过100万条，就触发checkpoint。</p>
+<blockquote>
+<p>那么如何知道记录达到100万条呢？根据hdfs-site.xml设置的dfs.namenode.checkpoint.check.period，每60秒检查一次，edits中的记录有多少条。</p>
+</blockquote>
 </li>
 </ul>
-<h3 id="2-5-3-合并流程"><a href="#2-5-3-合并流程" class="headerlink" title="2.5.3. 合并流程"></a>2.5.3. 合并流程</h3><p><img src="https://i.loli.net/2019/02/21/5c6e2c8bd5253.png" alt></p>
+<h3 id="2-5-3-合并流程"><a href="#2-5-3-合并流程" class="headerlink" title="2.5.3. 合并流程"></a>2.5.3. 合并流程</h3><p><img src="https://i.loli.net/2019/02/21/5c6e2c8bd5253.png" alt=""></p>
 <ol>
 <li><p>当edits文件的大小达到一个临界值(默认是64MB)或者间隔一段时间(默认是1小时)的时候checkpoint会触发SecondaryNameNode进行合并工作。</p>
 </li>
@@ -715,6 +709,13 @@
 <p>以上过程既实现了FsImage和EditsLog的合并。因为其间名称节点的元数据被拷贝到第二名称节点上，所以说起到冷备份的效果。</p>
 </li>
 </ol>
+<h2 id="2-6-HDFS-Client客户端"><a href="#2-6-HDFS-Client客户端" class="headerlink" title="2.6. HDFS Client客户端"></a>2.6. HDFS Client客户端</h2><ul>
+<li>文件切分。文件上传HDFS的时候，Client将文件切分成一个1的Block,然后进行上传;</li>
+<li>与NameNode交互，获取文件的位置信息；</li>
+<li>与DataNode交互，读取或者写入数据；</li>
+<li>Client提供一些命令来管理HDFS,比如NameNode格式化；</li>
+<li>Client可以通过一些命令来访问HDFS,比如对HDFS増删查改操作；</li>
+</ul>
 <h1 id="3-HDFS安全机制"><a href="#3-HDFS安全机制" class="headerlink" title="3. HDFS安全机制"></a>3. HDFS安全机制</h1><h2 id="3-1-HDFS副本"><a href="#3-1-HDFS副本" class="headerlink" title="3.1. HDFS副本"></a>3.1. HDFS副本</h2>
       
     </div>
@@ -728,7 +729,7 @@
     
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-  <img id="wechat_subscriber_qcode" src="/test/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat_subscriber.jpg" alt="panchaoxin wechat" style="width: 200px; max-width: 100%;">
   <div>关注我的公众号</div>
 </div>
 
@@ -749,14 +750,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/test/images/wechatpay.jpg" alt="panchaoxin 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="panchaoxin 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/test/images/alipay.jpg" alt="panchaoxin 支付宝">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="panchaoxin 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -776,68 +777,14 @@
 
       
       
-        <div class="post-widgets">
-        
-
-        
-
-        
-          
-          <div class="social_share">
-            
-              <div>
-                
-  <div class="bdsharebuttonbox">
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
-    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a class="bds_count" data-cmd="count"></a>
-  </div>
-  <script>
-    window._bd_share_config = {
-      "common": {
-        "bdText": "",
-        "bdMini": "2",
-        "bdMiniList": false,
-        "bdPic": ""
-      },
-      "share": {
-        "bdSize": "16",
-        "bdStyle": "0"
-      },
-      "image": {
-        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "分享到：",
-        "viewSize": "16"
-      }
-    }
-  </script>
-
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/test/2019/02/20/hadoop/MapReduce 概述/" rel="next" title="MapReduce 概述">
-                <i class="fa fa-chevron-left"></i> MapReduce 概述
+              <a href="/2019/02/20/hadoop/Hadoop 概述/" rel="next" title="Hadoop 概述">
+                <i class="fa fa-chevron-left"></i> Hadoop 概述
               </a>
             
           </div>
@@ -846,7 +793,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/test/2019/02/20/hadoop/Hadoop 组件启动关闭的三种方式/" rel="prev" title="Hadoop 组件启动关闭的三种方式">
+              <a href="/2019/02/20/hadoop/Hadoop 组件启动关闭的三种方式/" rel="prev" title="Hadoop 组件启动关闭的三种方式">
                 Hadoop 组件启动关闭的三种方式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -909,9 +856,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/test/images/avatar.png" alt="panchaoxin">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="panchaoxin">
             
               <p class="site-author-name" itemprop="name">panchaoxin</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -922,9 +869,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/test/archives/">
+                  <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">220</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -934,7 +881,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/test/categories/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -947,7 +894,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -957,14 +912,94 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/test/tags/index.html">
+                  <a href="/tags/index.html">
                     
                     
                       
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1026,7 +1061,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-什么是HDFS"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-HDFS特点"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. HDFS特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-HDFS优点："><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1. HDFS优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-HDFS缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2. HDFS缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HDFS架构"><span class="nav-number">2.</span> <span class="nav-text">2. HDFS架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-HDFS数据单元：数据块"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. HDFS数据单元：数据块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-块大小"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1. 块大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-数据块为什么这么大"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2. 数据块为什么这么大?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-数据块为什么不能过大"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3. 数据块为什么不能过大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-数据块副本"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4. 数据块副本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-5-数据块副本存放策略"><span class="nav-number">2.1.5.</span> <span class="nav-text">2.1.5. 数据块副本存放策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-6-数据块损坏（corruption）处理"><span class="nav-number">2.1.6.</span> <span class="nav-text">2.1.6. 数据块损坏（corruption）处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-7-验证每个数据块有两个文件"><span class="nav-number">2.1.7.</span> <span class="nav-text">2.1.7. 验证每个数据块有两个文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-HDFS命名空间管理"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. HDFS命名空间管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-NameNode（NN）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. NameNode（NN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-FsImage和EditLog"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1. FsImage和EditLog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-NameNode需要格式化"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2. NameNode需要格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-NameNode启动过程"><span class="nav-number">2.3.3.</span> <span class="nav-text">2.3.3. NameNode启动过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-验证安全模式的存在"><span class="nav-number">2.3.4.</span> <span class="nav-text">2.3.4. 验证安全模式的存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-5-为什么达到关闭SafeMode的条件，还要缓冲30秒？"><span class="nav-number">2.3.5.</span> <span class="nav-text">2.3.5. 为什么达到关闭SafeMode的条件，还要缓冲30秒？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-6-手动操作SafeMode"><span class="nav-number">2.3.6.</span> <span class="nav-text">2.3.6. 手动操作SafeMode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-DataNode"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. DataNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-SecondaryNameNode（SNN）"><span class="nav-number">2.5.</span> <span class="nav-text">2.5. SecondaryNameNode（SNN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-1-为什么要辅助NameNode合并fsimage和editlog"><span class="nav-number">2.5.1.</span> <span class="nav-text">2.5.1. 为什么要辅助NameNode合并fsimage和editlog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-SecondaryNameNode触发合并的情况"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.5.2. SecondaryNameNode触发合并的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-3-合并流程"><span class="nav-number">2.5.3.</span> <span class="nav-text">2.5.3. 合并流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-HDFS安全机制"><span class="nav-number">3.</span> <span class="nav-text">3. HDFS安全机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-HDFS副本"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. HDFS副本</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-什么是HDFS"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-HDFS产生背景"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. HDFS产生背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-HDFS的定义"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. HDFS的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-HDFS特点"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. HDFS特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-HDFS优点："><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1. HDFS优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-HDFS缺点"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2. HDFS缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HDFS架构"><span class="nav-number">2.</span> <span class="nav-text">2. HDFS架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-HDFS数据单元：数据块"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. HDFS数据单元：数据块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-块大小"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1. 块大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-为什么Hadoop2的块大小选择128M"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2. 为什么Hadoop2的块大小选择128M</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-为什么数据块不能设置太小"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3. 为什么数据块不能设置太小?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-为什么数据块不能设置太大"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4. 为什么数据块不能设置太大?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-5-数据块副本数"><span class="nav-number">2.1.5.</span> <span class="nav-text">2.1.5. 数据块副本数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-6-数据块副本存放策略"><span class="nav-number">2.1.6.</span> <span class="nav-text">2.1.6. 数据块副本存放策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-7-数据块损坏（corruption）处理"><span class="nav-number">2.1.7.</span> <span class="nav-text">2.1.7. 数据块损坏（corruption）处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-8-验证每个数据块有两个文件"><span class="nav-number">2.1.8.</span> <span class="nav-text">2.1.8. 验证每个数据块有两个文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-HDFS命名空间管理"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. HDFS命名空间管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-NameNode（NN）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. NameNode（NN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-FsImage和edits"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1. FsImage和edits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2. 为什么元数据FsImage在内存中有一份，在磁盘中也要有一份？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-为什么要有Edits操作日志"><span class="nav-number">2.3.3.</span> <span class="nav-text">2.3.3. 为什么要有Edits操作日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-NameNode需要格式化"><span class="nav-number">2.3.4.</span> <span class="nav-text">2.3.4. NameNode需要格式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-DataNode（DN）"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. DataNode（DN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-数据完整性"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1. 数据完整性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-DataNode掉线时限参数设置"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2. DataNode掉线时限参数设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-SecondaryNameNode（SNN-2NN）"><span class="nav-number">2.5.</span> <span class="nav-text">2.5. SecondaryNameNode（SNN/2NN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-1-为什么要辅助NameNode合并fsimage和edits"><span class="nav-number">2.5.1.</span> <span class="nav-text">2.5.1. 为什么要辅助NameNode合并fsimage和edits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-SecondaryNameNode触发合并的情况"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.5.2. SecondaryNameNode触发合并的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-3-合并流程"><span class="nav-number">2.5.3.</span> <span class="nav-text">2.5.3. 合并流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-HDFS-Client客户端"><span class="nav-number">2.6.</span> <span class="nav-text">2.6. HDFS Client客户端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-HDFS安全机制"><span class="nav-number">3.</span> <span class="nav-text">3. HDFS安全机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-HDFS副本"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. HDFS副本</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1161,45 +1196,45 @@
 
 
   
-  <script src="/test/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/test/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/test/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/test/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/test/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/test/js/src/affix.js?v=7.0.0"></script>
-
-  <script src="/test/js/src/schemes/pisces.js?v=7.0.0"></script>
-
-
-
-
-  
-  <script src="/test/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/test/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/test/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
 
 
 
@@ -1252,7 +1287,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/test/" + search_path;
+    var path = "/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -1570,6 +1605,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
 
